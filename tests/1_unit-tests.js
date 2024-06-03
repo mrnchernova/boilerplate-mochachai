@@ -34,7 +34,7 @@ suite('Unit Tests', function () {
     // #5
     test('#equal, #notEqual', function () {
       assert.equal(12, '12', 'Numbers are coerced into strings with ==');
-      assert.equal({ value: 1 }, { value: 1 }, '== compares object references');
+      assert.notEqual({ value: 1 }, { value: 1 }, '== compares object references');
       assert.equal(6 * '2', '12');
       assert.notEqual(6 + '2', '12');
     });
@@ -47,8 +47,8 @@ suite('Unit Tests', function () {
     });
     // #7
     test('#deepEqual, #notDeepEqual', function () {
-      assert.notDeepEqual({ a: '1', b: 5 }, { b: 5, a: '1' }, "The order of keys doesn't matter");
-      assert.deepEqual({ a: [5, 6] }, { a: [6, 5] }, 'The order of array elements does matter');
+      assert.deepEqual({ a: '1', b: 5 }, { b: 5, a: '1' }, "The order of keys doesn't matter");
+      assert.notDeepEqual({ a: [5, 6] }, { a: [6, 5] }, 'The order of array elements does matter');
     });
   });
 
@@ -157,7 +157,7 @@ suite('Unit Tests', function () {
     });
     // #18
     test('#instanceOf, #notInstanceOf', function () {
-      assert.instanceOf(myCar, Plane);
+      assert.notInstanceOf(myCar, Plane);
       assert.instanceOf(airlinePlane, Plane);
       assert.instanceOf(airlinePlane, Object);
       assert.notInstanceOf(myCar.wheels, String);
